@@ -79,7 +79,8 @@ myNuts.after('download', function(download, next) {
 });
 
 if (process.env.TRUST_PROXY) {
-  app.set('trust proxy', process.env.TRUST_PROXY);
+  app.enable('trust proxy');
+  // app.set('trust proxy', process.env.TRUST_PROXY);
 }
 
 app.use(morgan('combined'));
