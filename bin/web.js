@@ -2,6 +2,7 @@ var express = require('express');
 var uuid = require('uuid');
 var basicAuth = require('basic-auth');
 var Analytics = require('analytics-node');
+var morgan = require('morgan')
 var nuts = require('../');
 
 var app = express();
@@ -81,6 +82,7 @@ if (process.env.TRUST_PROXY) {
   app.set('trust proxy', process.env.TRUST_PROXY);
 }
 
+app.use(morgan('combined'));
 app.use(myNuts.router);
 
 // Error handling
